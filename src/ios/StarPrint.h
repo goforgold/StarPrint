@@ -1,9 +1,9 @@
 //
-//  PrintPlugin.h
-//  Print Plugin
+//  StarPrint.h
+//  Star Print
 //
-//  Created by Ian Tipton (github.com/itip) on 02/07/2011.
-//  Copyright 2011 Ian Tipton. All rights reserved.
+//  Created by Shashwat Triapthi (github.com/goforgold) on 19 May 2014.
+//  Copyright 2014 Shashwat Triapthi. All rights reserved.
 //  MIT licensed
 //
 
@@ -16,20 +16,20 @@
 @interface StarPrint : CDVPlugin {
 	NSString* successCallback;
 	NSString* failCallback;
-	NSString* printHTML;
+	NSString* msg;
 
     //Options
-	NSInteger dialogLeftPos;
-	NSInteger dialogTopPos;
+	//NSInteger dialogLeftPos;
+	//NSInteger dialogTopPos;
 }
 
 @property (nonatomic, copy) NSString* successCallback;
 @property (nonatomic, copy) NSString* failCallback;
-@property (nonatomic, copy) NSString* printHTML;
+@property (nonatomic, copy) NSString* msg;
 
 //Print Settings
-@property NSInteger dialogLeftPos;
-@property NSInteger dialogTopPos;
+//@property NSInteger dialogLeftPos;
+//@property NSInteger dialogTopPos;
 
 - (void)isPrintingAvailable: (CDVInvokedUrlCommand*)command;
 - (void)print:(CDVInvokedUrlCommand*)command;
