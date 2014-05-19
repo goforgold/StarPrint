@@ -3,9 +3,9 @@
  */
 var StarPrint = function(){};
 
-StarPrint.prototype.print = function(msg, successCallback, errorCallback) {
+StarPrint.prototype.print = function(portName, printContent, successCallback, errorCallback) {
 	
-	cordova.exec(successCallback, errorCallback, 'StarPrint', 'print', [msg]);
+	cordova.exec(successCallback, errorCallback, 'StarPrint', 'print', [portName, printContent]);
 	
 };
 
