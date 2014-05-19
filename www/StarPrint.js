@@ -14,13 +14,16 @@ PrintPlugin.prototype.isPrintingAvailable = function(successCallback, errorCallb
 };
 
 // Plug in to Cordova
-cordova.addConstructor(function() {
+//cordova.addConstructor(function() {
+//
+//    if (!window.Cordova) {
+//        window.Cordova = cordova;
+//    };
+//
+//
+//    if(!window.plugins) window.plugins = {};
+//    window.plugins.StarPrint = new StarPrint();
+//});
 
-    if (!window.Cordova) {
-        window.Cordova = cordova;
-    };
-
-
-    if(!window.plugins) window.plugins = {};
+if(!window.plugins) window.plugins = {};
     window.plugins.StarPrint = new StarPrint();
-});
