@@ -2,25 +2,24 @@
 
 <plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
   xmlns:android="http://schemas.android.com/apk/res/android"
-  id="com.badrit.PrintPlugin"
+  id="com.mharsh.StarPrint"
   version="0.1.0">
-  <name>PrintPlugin</name>
-  <description>Cordova Print Plugin</description>
+  <name>StarPrint</name>
+  <description>Print receipt Function for Star Micronics Printer</description>
   <license>Apache 2.0</license>
-  <keywords>cordova,PrintPlugin</keywords>
+  <keywords>cordova,PrintPlugin, StarPrint</keywords>
 
   <dependency id="org.apache.cordova.device" url="https://github.com/apache/cordova-plugin-device.git" />
-  <dependency id="org.apache.cordova.inappbrowser" url="https://github.com/apache/cordova-plugin-inappbrowser.git" />
 
-  <js-module src="www/PrintPlugin.js" name="PrintPlugin">
-    <clobbers target="window.PrintPlugin" />
+  <js-module src="www/StarPrint.js" name="StarPrint">
+    <clobbers target="window.StarPrint" />
   </js-module>
 
   <!-- ios -->
   <platform name="ios">
    <config-file target="config.xml" parent="/*">
-     <feature name="PrintPlugin">
-       <param name="ios-package" value="PrintPlugin" />
+     <feature name="StarPrint">
+       <param name="ios-package" value="StarPrint" />
      </feature>
    </config-file>
 
