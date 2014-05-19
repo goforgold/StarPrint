@@ -42,6 +42,19 @@
     self.msg = [command.arguments objectAtIndex:0];
     
     NSLog(@"msg: %@", self.msg);
+    
+    CDVPluginResult* pluginResult = nil;
+    
+    BOOL isError = NO;
+    
+    if (isError) {
+        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:[NSString stringWithFormat:@"{success: false, available: true, error: \"%@\"}", @"iOS Error"]];
+    }
+    else {
+        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"{success: true}"];
+    }
+    
+    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
 
 -(BOOL) isPrintServiceAvailable{
