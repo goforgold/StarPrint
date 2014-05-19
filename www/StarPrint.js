@@ -24,6 +24,13 @@ PrintPlugin.prototype.isPrintingAvailable = function(successCallback, errorCallb
 //    if(!window.plugins) window.plugins = {};
 //    window.plugins.StarPrint = new StarPrint();
 //});
+try{
+	
 
 if(!window.plugins) window.plugins = {};
     window.StarPrint = new StarPrint();
+}
+catch(ex)
+{
+	alert(ex);
+}
