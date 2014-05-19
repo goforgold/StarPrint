@@ -5,12 +5,12 @@ var StarPrint = function(){};
 
 PrintPlugin.prototype.print = function(msg, successCallback, errorCallback) {
 	
-	cordova.exec(successCallback, errorCallback, 'PrintPlugin', 'print', [msg]);
+	cordova.exec(successCallback, errorCallback, 'StarPrint', 'print', [msg]);
 	
 };
 
 PrintPlugin.prototype.isPrintingAvailable = function(successCallback, errorCallback){
-	cordova.exec(successCallback, errorCallback, 'PrintPlugin', 'isPrintingAvailable', []);
+	cordova.exec(successCallback, errorCallback, 'StarPrint', 'isPrintingAvailable', []);
 };
 
 // Plug in to Cordova
