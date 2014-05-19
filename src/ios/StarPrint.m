@@ -1,5 +1,5 @@
 //
-//  PrintPlugin.m
+//  StarPrint.m
 //  Print Plugin
 //
 //  Created by Ian Tipton (github.com/itip) on 02/07/2011.
@@ -7,15 +7,15 @@
 //  MIT licensed
 //
 
-#import "PrintPlugin.h"
+#import "StarPrint.h"
 
-@interface PrintPlugin (Private)
+@interface StarPrint (Private)
 -(void) doPrint;
 -(void) callbackWithFuntion:(NSString *)function withData:(NSString *)value;
 - (BOOL) isPrintServiceAvailable;
 @end
 
-@implementation PrintPlugin
+@implementation StarPrint
 
 @synthesize successCallback, failCallback, printHTML, dialogTopPos, dialogLeftPos;
 

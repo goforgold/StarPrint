@@ -13,7 +13,7 @@
 #import <Cordova/CDVPlugin.h>
 
 
-@interface PrintPlugin : CDVPlugin {
+@interface StarPrint : CDVPlugin {
 	NSString* successCallback;
 	NSString* failCallback;
 	NSString* printHTML;
