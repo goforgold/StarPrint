@@ -21,6 +21,6 @@ cordova.addConstructor(function() {
     };
 
 
-    if(!window.plugins) window.plugins = {};
-    window.plugins.StarPrint = new StarPrint();
+    //if(!window.plugins) window.plugins = {};
+    window.StarPrint = new StarPrint();
 });
