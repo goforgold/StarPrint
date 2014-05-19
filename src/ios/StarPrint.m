@@ -43,6 +43,8 @@
     self.portName = [command.arguments objectAtIndex:0];
     self.printContent = [command.arguments objectAtIndex:1];
     
+    CDVPluginResult* pluginResult = nil;
+    
     //NSLog(@"msg: %@", self.msg);
     
     
@@ -53,12 +55,13 @@
     SMPort *port = nil;
     @try
     {
-        port = [SMPort getPort:@"BT:" :@"MINI" :10000];
+        port = [SMPort getPort:self.portName :@"" :10000];
         //Start checking the completion of printing
         [port beginCheckedBlock:&starPrinterStatus :2];
         if (starPrinterStatus.offline == SM_TRUE)
         {
             //There was an error writing to the port
+            pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:[NSString stringWithFormat:@"{success: false, available: true, error: \"%@\"}", @"Printer is in Offline mode."]];
         }
         while (bytesWritten < sizeof (printCommand)) {
             bytesWritten += [port writePort: printCommand : bytesWritten : sizeof (printCommand) - bytesWritten];
@@ -67,19 +70,19 @@
         [port endCheckedBlock:&starPrinterStatus :2];
         if (starPrinterStatus.offline == SM_TRUE)
         {
-            //There was an error writing to the port
+            pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:[NSString stringWithFormat:@"{success: false, available: true, error: \"%@\"}", @"Printer got in Offline mode while sending data."]];
         }
     }
     @catch (PortException *ex)
     {
-        //There was an error writing to the port
+        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:[NSString stringWithFormat:@"{success: false, available: true, error: \"%@\"}", ex.messageAsString]];
     }
     @finally
     {
         [SMPort releasePort:port];
     }
     
-    CDVPluginResult* pluginResult = nil;
+    
     
     BOOL isError = NO;
     
