@@ -3,7 +3,7 @@
  */
 var StarPrint = function(){};
 
-PrintPlugin.prototype.print = function(msg, successCallback, errorCallback, uri, type, title) {
+PrintPlugin.prototype.print = function(msg, successCallback, errorCallback) {
 	
 	cordova.exec(successCallback, errorCallback, 'PrintPlugin', 'print', [msg]);
 	
