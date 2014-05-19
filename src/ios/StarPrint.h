@@ -8,15 +8,17 @@
 //
 
 #import <Foundation/Foundation.h>
-
-
 #import <Cordova/CDVPlugin.h>
+
+#import <StarIO/SMPort.h>
 
 
 @interface StarPrint : CDVPlugin {
 	NSString* successCallback;
 	NSString* failCallback;
-	NSString* msg;
+	
+    NSString* portName;
+    NSString* printContent;
 
     //Options
 	//NSInteger dialogLeftPos;
@@ -25,7 +27,8 @@
 
 @property (nonatomic, copy) NSString* successCallback;
 @property (nonatomic, copy) NSString* failCallback;
-@property (nonatomic, copy) NSString* msg;
+@property (nonatomic, copy) NSString* portName;
+@property (nonatomic, copy) NSString* printContent;
 
 //Print Settings
 //@property NSInteger dialogLeftPos;
