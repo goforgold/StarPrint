@@ -9,7 +9,6 @@
 
 #import <Foundation/Foundation.h>
 #import <Cordova/CDVPlugin.h>
-
 #import <StarIO/SMPort.h>
 
 
