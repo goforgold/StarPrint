@@ -65,6 +65,7 @@
         struct timeval endTime;
         gettimeofday(&endTime, NULL);
         endTime.tv_sec += 10;
+        BOOL timedOut = NO;
         
         while (bytesWritten < sizeof (printCommand)) {
             bytesWritten += [port writePort: printCommand : bytesWritten : sizeof (printCommand) - bytesWritten];
@@ -73,17 +74,22 @@
             gettimeofday(&now, NULL);
             if (now.tv_sec > endTime.tv_sec)
             {
-                pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:[NSString stringWithFormat:@"{\"success\": false, \"available\": true, \"error\": \"%@\"}", @"Could not send data to printer in 10 seconds."]];
+                timedOut = YES;
                 break;
             }
         }
+        
         //End checking the completion of printing
         [port endCheckedBlock:&starPrinterStatus :2];
-        if (starPrinterStatus.offline == SM_TRUE) {
+        
+        if (timedOut) {
+            pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:[NSString stringWithFormat:@"{\"success\": false, \"available\": true, \"error\": \"%@\"}", @"Could not send data to printer in 10 seconds."]];
+        }
+        else if (starPrinterStatus.offline == SM_TRUE) {
             pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:[NSString stringWithFormat:@"{\"success\": false, \"available\": true, \"error\": \"%@\"}", @"Printer got in Offline mode while sending data."]];
         }
         else {
-            //pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"{\"success\": true}"];
+            pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"{\"success\": true}"];
         }
     }
     @catch (PortException *ex)
