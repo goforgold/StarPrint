@@ -1,4 +1,4 @@
-Star Print plugin for Cordova / PhoneGap
+Star Print plugin for PhoneGap
 ======================================================
 
 Developed by Shashwat Triapthi
