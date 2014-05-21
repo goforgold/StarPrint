@@ -101,7 +101,6 @@
         [SMPort releasePort:port];
     }
     
-    
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
 
