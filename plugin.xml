@@ -9,7 +9,7 @@
   <license>Apache 2.0</license>
   <keywords>cordova,PrintPlugin, StarPrint</keywords>
 
-  <dependency id="org.apache.cordova.device" url="https://github.com/apache/cordova-plugin-device.git" />
+  <dependency id="cordova-plugin-device" url="https://github.com/apache/cordova-plugin-device.git" />
 
   <js-module src="www/StarPrint.js" name="StarPrint">
     <clobbers target="window.StarPrint" />
